@@ -1,5 +1,5 @@
 body {
-  background-image: url("assets/background.jpg");
+  background: url("https://raw.githubusercontent.com/jjspetz/FCC-Calculator/master/assets/background.jpg") #333;
   background-size: cover;
 }
 
