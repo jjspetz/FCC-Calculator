@@ -4,3 +4,4 @@ This is my advanced front-end project for [freecodecamp.com](https://www.freecod
 ###Built-with
 HTML, CSS, JS, jQuery, Bootstrap
 
+![calculator](https://github.com/jjspetz/FCC-Calculator/blob/master/assets/calculator%20img.png)
