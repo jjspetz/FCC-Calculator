@@ -22,8 +22,10 @@ $("#percent").click(function() {
   var newLength = current.length - lastNum.length;
 
   let ans = eval(lastNum/100);
-  current = current.slice(0, newLength) + ans;
-  lastNum = ans.toString();
+  if (current) {
+    current = current.slice(0, newLength) + ans;
+    lastNum = ans.toString();
+  }
 
   display(current);
 })
