@@ -21,10 +21,15 @@ $(".operator").click(function() {
 $("#percent").click(function() {
   var newLength = current.length - lastNum.length;
 
-  let ans = eval(lastNum/100);
   if (current) {
+    if (lastNum.length > 19) {
+      current = 'OVERFLOW';
+    } else {
+    let ans = roundoff(lastNum + '/'+ '100');
+
     current = current.slice(0, newLength) + ans;
     lastNum = ans.toString();
+    }
   }
 
   display(current);
@@ -92,7 +97,7 @@ $("#equate").on('click', function() {
     //checks for double negatives which the eval Method can't parse and replaces them with plus.
     current = current.replace("--","+");
 
-    let ans = eval(current);
+    let ans = roundoff(current);
 
     current = ans.toString();
     lastNum = current;
@@ -102,10 +107,23 @@ $("#equate").on('click', function() {
 //display function
 function display(string) {
   if (string.length > 20) {
-    $("#entry").html('<p>OVERFLOW</p>');
+      $("#entry").html('<p>OVERFLOW</p>');
   } else {
     var displayStr = string.replace("/","&divide");
     displayStr = displayStr.replace("*","x")
     $("#entry").html('<p>' + displayStr + '</p>');
   }
+}
+
+// format fucntion
+// this function tries to limit some of the wackiness of floating
+// point math in javascript.
+function roundoff(string) {
+  let ans = string;
+  ans = ans.replace(/[+-/*//.]/, "");
+
+  let sum = ans.length - 1;
+
+  if (string)
+  return (eval(string).toFixed(sum)).replace(/0+$/, '');
 }
