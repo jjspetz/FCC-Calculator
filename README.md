@@ -21,7 +21,7 @@ function roundoff(string) {
 }
 ```
 
-It solves problems like .45/100, which will be rounded down to the expected value, but does work in cases that need to be rounded up.
+It solves problems like .45/100, which will be rounded down to the expected value, but doesn't work in all cases.
 
 ### Other Lessons Learned
 1) I had to use the eval() script for this project, so I spent a lot of time reading about the benefits and the potential security risk of using this script. I believe for a calculator where the user input is limited to numbers the security risk is negligible.
